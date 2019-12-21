@@ -4,9 +4,11 @@ $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 $queueName = "mailbox-sequence"
 $queueConnectionString = ""
 
+# Create Context and Get Queue
 $queueContext = New-AzStorageContext -ConnectionString $queueConnectionString
 $queue = Get-AzStorageQueue -Name $queueName -Context $queueContext
 
+# Read Queue Message and deleting if used.
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
 
 if($null -eq $queueMessage.Result){
