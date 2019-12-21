@@ -23,7 +23,7 @@
 
 Param(
     [string] $invisibleTimeout = [System.TimeSpan]::FromSeconds(10),
-    [string] $queueName = "mailbox-sequence",
+    [string] $queueName = "queue-name",
     [string] $queueConnectionString = ""
 )
 
