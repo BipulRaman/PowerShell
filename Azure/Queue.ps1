@@ -1,13 +1,33 @@
-#Prerequisite Module : Az
-#Install-Module -Name Az -AllowClobber
+<#
+.SYNOPSIS
+   Sample scripts on Azure Storage Queue.
+.DESCRIPTION
+   Sample scripts on Azure Storage Queue. Prerequisite Module : Az
+   Install-Module -Name Az -AllowClobber
+.NOTES
+   Created by: Bipul Raman @BipulRaman
+   Modified by: Bipul Raman @BipulRaman
+   Modified: 12/22/2018 02:26 PM IST
+.PARAMETER invisibleTimeout
+   Set the amount of time you want to entry to be invisible after read from the queue.
+   If it is not deleted by the end of this time, it will show up in the queue again
+.PARAMETER queueName
+   Azure Storage Queue Name 
+.PARAMETER queueConnectionString
+   Azure Storage Queue Connection String
+.EXAMPLE
+   ##
+#>
 
-# Set the amount of time you want to entry to be invisible after read from the queue.
-# If it is not deleted by the end of this time, it will show up in the queue again
-$invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
-# Azure Storage Queue Name
-$queueName = "mailbox-sequence"
-# Azure Storage Queue Connection String
-$queueConnectionString = ""
+#-------------------[PARAMETERS]-------------------
+
+Param(
+    [string] $invisibleTimeout = [System.TimeSpan]::FromSeconds(10),
+    [string] $queueName = "mailbox-sequence",
+    [string] $queueConnectionString = ""
+)
+
+#-------------------[FUNCTIONS]-------------------
 
 #Function to get message from Azure Storage Queue
 Function Get-QueueMessage {  
@@ -51,6 +71,8 @@ Function New-QueueMessage {
         Write-Host "Message Added to Queue !"
     }    
 }
+
+#-------------------[EXECUTION]-------------------
 
 # Calling functions to perform operations.
 New-QueueMessage -queueName $queueName -queueConnectionString $queueConnectionString -newMessage "This is Bipul"
