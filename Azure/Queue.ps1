@@ -1,3 +1,6 @@
+#Prerequisite Module : Az
+#Install-Module -Name Az -AllowClobber
+
 # Set the amount of time you want to entry to be invisible after read from the queue.
 # If it is not deleted by the end of this time, it will show up in the queue again
 $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
