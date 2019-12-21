@@ -7,7 +7,7 @@
 .NOTES
    Created by: Bipul Raman @BipulRaman
    Modified by: Bipul Raman @BipulRaman
-   Modified: 12/22/2018 02:26 PM IST
+   Modified: 12/21/2019 02:26 PM IST
 .PARAMETER invisibleTimeout
    Set the amount of time you want to entry to be invisible after read from the queue.
    If it is not deleted by the end of this time, it will show up in the queue again
